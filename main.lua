@@ -16,6 +16,7 @@ local num_floors = 6
 local colors = {"blue", "red", "orange", "green", "purple"}
 local fullscreen = false
 local canvas
+local background
 
 local verdana = love.graphics.newFont("res/verdanab.ttf", 72)
 local consolas = love.graphics.newFont("res/consola.ttf", 45)
@@ -121,6 +122,8 @@ function love.load()
     lemss[v] = love.graphics.newImage("res/lem_" .. v .. ".png")
   end
   
+  background = love.graphics.newImage("res/background.png")
+  
   spbctf["0"] = nil
   spbctf["s"] = love.graphics.newImage("res/logo_smooth.png")
   spbctf["p"] = love.graphics.newImage("res/logo_pix.png")
@@ -178,10 +181,10 @@ function love.draw2()
   
   love.graphics.setColor(10, 10, 10)
   love.graphics.rectangle("fill", 0, 0, window_w, window_h)
-  
   love.graphics.setColor(255, 255, 255)
+  love.graphics.draw(background, 0, 0)
   
-  draw_floors()
+  -- draw_floors()
   
   for i=0,window_w,40 do 
     love.graphics.draw(floorss, floorquad, i, window_h - 21)
@@ -256,14 +259,14 @@ function love.update(dt)
       v.x = v.x + v.walk_dir * v.walk_speed * dt
       
       for _, wx in pairs(walls[v.cur_floor]) do
-        if v.x < wx + v.w/2 and v.x + v.w > wx + v.w/2 then
+        if v.x < wx + v.w/2 + 2 and v.x + v.w > wx + v.w/2 - 2 then
           if v.cur_floor == num_floors + 1 and v.walk_dir == 1 and wx == 0 then
             break
           end
           if v.cur_floor == num_floors + 1 and v.walk_dir == -1 and wx == window_w then
             break
           end
-          v.x = wx - v.walk_dir * (v.w/2)
+          v.x = wx - (v.walk_dir * (v.w/2 + 3))
           v.walk_dir = -v.walk_dir
           break
         end
