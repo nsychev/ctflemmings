@@ -327,6 +327,6 @@ function love.keyreleased(key, scancode, repeating)
   if key == "f" then
     fullscreen = not fullscreen
     love.window.setMode(fullscreen and 1920 or 800, fullscreen and 1080 or 480,
-      {fullscreen = fullscreen})
+      {fullscreen = fullscreen, display = 2})
   end
 end
