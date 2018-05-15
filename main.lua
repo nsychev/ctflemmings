@@ -311,7 +311,7 @@ function love.update(dt)
           v.mode = "walk"
           v.w = 14
           v.h = 20
-          v.y = v.y + 4
+          v.y = math.floor(v.y) + 4
           v.frame = 0
           v.framecount = 0
           v.dt = 0
