@@ -196,19 +196,22 @@ function love.draw2()
   if binary[spbctf_frame] == 0 then
     love.graphics.draw(spbctf["p"], 570, 30, 0, 200 / 1969.0)
   else
-    love.graphics.draw(spbctf["p"], 570, 30, 0, 200 / 1969.0)
+    love.graphics.draw(spbctf["s"], 570, 30, 0, 200 / 1969.0)
   end
   
   
-  love.graphics.setFont(verdana)
-  love.graphics.print({{255, 255, 255, 200}, "Starts at 13:37"}, 100, 145)
+  -- love.graphics.setFont(verdana)
+  -- love.graphics.print({{255, 255, 255, 200}, "Starts at 13:37"}, 100, 145)
   
   love.graphics.setFont(consolas)
-  love.graphics.print({{255, 255, 255, 200}, "blzhquest.ctf.su"}, 200, 233)
+  -- love.graphics.print({{255, 255, 255, 200}, "blzhquest.ctf.su"}, 200, 233)
   
-  love.graphics.print({{255, 255, 255, 200}, "t.me/blzhquest"}, 225, 283)
+  -- love.graphics.print({{255, 255, 255, 200}, "t.me/blzhquest"}, 225, 283)
   
-  love.graphics.draw(qr, 10, 10, 0, 0.6)  
+  love.graphics.print({{255, 255, 255}, "blzhquest"}, 30, 30)
+  love.graphics.print({{255, 255, 255}, ".ctf.su"}, 30, 80)
+  
+  -- love.graphics.draw(qr, 10, 10, 0, 0.6)  
   
 end
 
