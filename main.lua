@@ -17,6 +17,7 @@ local colors = {"blue", "red", "orange", "green", "purple"}
 local fullscreen = false
 local canvas
 local background
+local bg
 
 local verdana = love.graphics.newFont("res/verdanab.ttf", 72)
 local consolas = love.graphics.newFont("res/consola.ttf", 45)
@@ -124,11 +125,13 @@ function love.load()
   
   background = love.graphics.newImage("res/background.png")
   
-  spbctf["0"] = nil
   spbctf["s"] = love.graphics.newImage("res/logo_smooth.png")
   spbctf["p"] = love.graphics.newImage("res/logo_pix.png")
   
   qr = love.graphics.newImage("res/qr.png")
+  
+  -- select it here!
+  bg = love.graphics.newImage("res/bg_stars.png")
   
   yzhss = love.graphics.newImage("res/yzh.png")
   floorss = love.graphics.newImage("res/floor1.png")
@@ -179,8 +182,7 @@ end
 
 function love.draw2()
   
-  love.graphics.setColor(10, 10, 10)
-  love.graphics.rectangle("fill", 0, 0, window_w, window_h)
+  love.graphics.draw(bg, 0, 0)
   love.graphics.setColor(255, 255, 255)
   love.graphics.draw(background, 0, 0)
   
